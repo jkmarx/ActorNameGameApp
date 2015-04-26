@@ -19,4 +19,4 @@ angular.module('NameGameApp').config(['$routeProvider',
         redirectTo: '/welcome'
       });
     }
-  }]);
+  ]);

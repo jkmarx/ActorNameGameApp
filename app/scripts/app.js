@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('nameGameApp', [
+  .module('NameGameApp', [
     'ngAnimate',
     'ngAria',
     'ngResource',
