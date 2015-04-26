@@ -1,1 +1,7 @@
 this is the game page
+<h2> The Actor Name Game </h2>
+<div class='row' ng-controller="GameCtrl as gameCtrl">
+  <div class='col-md-2 col-sm-2' ng-repeat="actor in gameCtrl.actors">
+      <img src={{actor.image}}>
+  </div>
+</div>

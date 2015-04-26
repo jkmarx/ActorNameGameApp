@@ -1,16 +1,15 @@
 'use strict';
 
-angular.module('NameGameApp').factory('CelebritiesFactory', ['$http', 'ServerUrl', function($http, ServerUrl){
+angular.module('NameGameApp').factory('MoviesFactory', ['$http', 'ServerUrl', function($http, ServerUrl){
 
   var movies = [];
 
-  var requestMovies = function() {
+  var requestMovies = function(movie) {
     var params = {
-      title: "The Lion King"
-    }
+      movie: movie
+    };
     return $http.post(ServerUrl + '/movies', params).then(function(response) {
       console.log(response.data);
-       debugger;
       angular.copy(response.data, movies);
     }, requestFailure);
   };
