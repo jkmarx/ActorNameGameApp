@@ -2,25 +2,33 @@
 angular.module('NameGameApp')
   .controller('ModalCtrl', ModalCtrl);
 
-ModalCtrl.$inject = ['$scope', '$modal', '$log'];
-function ModalCtrl($scope, $modal, $log){
+ModalCtrl.$inject = ['$scope', '$modal', '$log', 'MoviesFactory'];
+function ModalCtrl($scope, $modal, $log, MoviesFactory){
 
-  $scope.items = ['item1', 'item2', 'item3'];
+  $scope.movies = MoviesFactory.movies;
+
+  var movie = {};
+  movie.id = '0110357';
+  movie.title = 'The Lion King';
+
+  MoviesFactory.requestMovies(movie).then(function(response){
+    $scope.movies = MoviesFactory.movies;
+  });
 
   $scope.open = function (size) {
     var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
+      templateUrl: 'movieOptions.html',
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
-        items: function () {
-          return $scope.items;
+        movies: function () {
+          return $scope.movies;
         }
       }
     });
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
+    modalInstance.result.then(function (selectedMovie) {
+      $scope.selected = selectedMovie;
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
@@ -30,16 +38,16 @@ function ModalCtrl($scope, $modal, $log){
 angular.module('NameGameApp')
   .controller('ModalInstanceCtrl', ModalInstanceCtrl);
 
-ModalInstanceCtrl.$inject = ['$scope', '$modalInstance', 'items'];
+ModalInstanceCtrl.$inject = ['$scope', '$modalInstance', 'movies'];
 
-function ModalInstanceCtrl($scope, $modalInstance, items){
-  $scope.items = items;
+function ModalInstanceCtrl($scope, $modalInstance, movies){
+  $scope.movies = movies;
   $scope.selected = {
-    item: $scope.items[0]
+    movie: $scope.movies[0]
   };
 
   $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+    $modalInstance.close($scope.selected.movie);
   };
 
   $scope.cancel = function () {

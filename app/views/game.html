@@ -1,18 +1,18 @@
-<div class='row'>
+<div class='row' ng-controller="GameCtrl as gameCtrl">
   <div class='col-md-12 col-sm-12'>
     <movie-form></movie-form>
     <div ng-controller="ModalCtrl">
-      <script type="text/ng-template" id="myModalContent.html">
+      <script type="text/ng-template" id="movieOptions.html">
         <div class="modal-header">
           <h3 class="modal-title">Im a modal!</h3>
         </div>
         <div class="modal-body">
           <ul>
-            <li ng-repeat="item in items">
-              <a ng-click="selected.item = item">{{ item }}</a>
+            <li ng-repeat="movie in movies">
+              <a ng-click="selected.movie = movie">{{ movie.title }}</a>
             </li>
           </ul>
-          Selected: <b>{{ selected.item }}</b>
+          Selected: <b>{{ selected.movie.title }}</b>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" ng-click="ok()">OK</button>
@@ -20,12 +20,12 @@
         </div>
       </script>
       <button class="btn btn-default" ng-click="open()">Open me!</button>
-      <div ng-show="selected"><h2>{{ selected }}</h2></div>
+      <div ng-show="selected"><h2>{{ selected.title }}</h2></div>
     </div>
   </div>
 </div>
 
-<div class='row' ng-controller="GameCtrl as gameCtrl">
+<div class='row'>
   <div class='col-md-2 col-sm-2' ng-repeat="actor in gameCtrl.actors">
       <img src={{actor.image}}>
   </div>
