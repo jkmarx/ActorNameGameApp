@@ -19,18 +19,20 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location){
   // });
 
   // ActorsFactory.requestActors(movie).then(function(response){
-  //   vm.actors = ActorsFactory.actors;
+    vm.actors = ActorsFactory.actors;
   // });
 
   vm.searchMovie = function(movie){
-    debugger;
     MoviesFactory.requestMovies(movie).then(function(response){
      vm.movies = MoviesFactory.movies;
     });
-
-    $location.path('/game');
   };
 
+  // vm.searchActors = function(movie){
+  //   ActorsFactory.requestActors(movie).then(function(response){
+  //   vm.actors = ActorsFactory.actors;
+  //   });
+  // }
 }
 
 

@@ -7,14 +7,6 @@ function ModalCtrl($scope, $modal, $log, MoviesFactory){
 
   $scope.movies = MoviesFactory.movies;
 
-  var movie = {};
-  movie.id = '0110357';
-  movie.title = 'The Lion King';
-
-  MoviesFactory.requestMovies(movie).then(function(response){
-    $scope.movies = MoviesFactory.movies;
-  });
-
   $scope.open = function (size) {
     var modalInstance = $modal.open({
       templateUrl: 'movieOptions.html',
@@ -38,9 +30,9 @@ function ModalCtrl($scope, $modal, $log, MoviesFactory){
 angular.module('NameGameApp')
   .controller('ModalInstanceCtrl', ModalInstanceCtrl);
 
-ModalInstanceCtrl.$inject = ['$scope', '$modalInstance', 'movies'];
+ModalInstanceCtrl.$inject = ['$scope', '$modalInstance', 'movies', 'ActorsFactory'];
 
-function ModalInstanceCtrl($scope, $modalInstance, movies){
+function ModalInstanceCtrl($scope, $modalInstance, movies, ActorsFactory){
   $scope.movies = movies;
   $scope.selected = {
     movie: $scope.movies[0]
@@ -48,6 +40,8 @@ function ModalInstanceCtrl($scope, $modalInstance, movies){
 
   $scope.ok = function () {
     $modalInstance.close($scope.selected.movie);
+    ActorsFactory.requestActors($scope.selected.movie).then(function(response){ console.log(response);
+    });
   };
 
   $scope.cancel = function () {

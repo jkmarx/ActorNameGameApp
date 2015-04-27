@@ -1,4 +1,4 @@
-<form class="movie-form" name="movieForm" ng-submit="gameCtrl.searchMovie(gameCtrl.movie)" novalidate>
+<!-- <form class="movie-form" name="movieForm" ng-submit="gameCtrl.searchMovie(gameCtrl.movie)" novalidate>
 
   <div class="form-group">
     <input type="text" placeholder="Enter Movie Title" ng-model="gameCtrl.movie.title" required>
@@ -6,4 +6,37 @@
   <button type="submit" class="btn btn-primary btn-xs" ng-disabled="searchMovie.$invalid">Submit</button>
   </div>
 
+</form> -->
+
+<div ng-controller="ModalCtrl">
+      <script type="text/ng-template" id="movieOptions.html">
+        <div class="modal-header">
+          <h3 class="modal-title">Im a modal!</h3>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li ng-repeat="movie in movies">
+              <a ng-click="selected.movie = movie">{{ movie.title }}</a>
+            </li>
+          </ul>
+          Selected: <b>{{ selected.movie.title }}</b>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" ng-click="ok()">OK</button>
+          <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+      </script>
+      <form class="movie-form" name="movieForm" ng-submit="gameCtrl.searchMovie(gameCtrl.movie)" novalidate>
+
+  <div class="form-group">
+    <input type="text" placeholder="Enter Movie Title" ng-model="gameCtrl.movie.title" required>
+
+  <button type="submit" class="btn btn-primary btn-xs" ng-disabled="searchMovie.$invalid" ng-click = "open()">Submit</button>
+  </div>
+
 </form>
+      <!-- <button class="btn btn-default" ng-click="open()">Open me!</button> -->
+      <div ng-show="selected"><h2>{{ selected.title }}</h2></div>
+    </div>
+  </div>
+</div>
