@@ -5,7 +5,7 @@ angular.module('NameGameApp').config(['$routeProvider',
     $routeProvider
       .when('/welcome',{
         templateUrl: 'views/welcome.html',
-        controller: 'WelcomeCtrl'
+        controller: 'GameCtrl'
       })
       .when('/game',{
         templateUrl: 'views/game.html',

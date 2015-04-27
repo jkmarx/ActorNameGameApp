@@ -1,0 +1,9 @@
+<form class="movie-form" name="movieForm" ng-submit="gameCtrl.searchMovie(gameCtrl.movie)" novalidate>
+
+  <div class="form-group">
+    <input type="text" placeholder="Enter Movie Title" ng-model="gameCtrl.movie.title" required>
+
+  <button type="submit" class="btn btn-primary btn-xs" ng-disabled="searchMovie.$invalid">Submit</button>
+  </div>
+
+</form>

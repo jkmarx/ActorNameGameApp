@@ -7,7 +7,7 @@ angular.module('NameGameApp').factory('ActorsFactory', ['$http', 'ServerUrl', fu
   var requestActors = function(movie) {
     var params = {
       movie: movie
-    }
+    };
     return $http.post(ServerUrl + '/movies/cast', params).then(function(response) {
       console.log(response.data);
       angular.copy(response.data, actors);
