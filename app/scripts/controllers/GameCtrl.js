@@ -55,9 +55,9 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
     $scope.list1 =[];
   };
 
-  vm.resetRandList() = function(){
+  vm.resetRandList = function(){
     angular.copy(ActorsFactory.getCastNamesRand(vm.actorsNames.slice(0)), $scope.list2);
-  }
+  };
 
   vm.checkGuess = function(){
     var flag = true;

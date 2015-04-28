@@ -1,27 +1,47 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+html, body {
+  padding-top: 25px;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  background-image: url("https://raw.githubusercontent.com/jkmarx/ActorNameGameApp/gh-pages/images/lights.jpg");
+  /*background-image: url("images/lights.jpg");*/
+  background-attachment: fixed;
 }
 
-body {
-  padding: 0;
+ul {
+  list-style-type: none;
 }
 
+li{
+  display: inline;
+  padding-right: 20px;
+  float: left;
+}
 
 .thumbnail {
   height: 280px !important;
+  width: 180px;
    }
+
+
 .btn-droppable {
-  width: 180px; height: 30px; padding-left: 4px;
+  width: 100%;
+  height: 40px;
   background-color: black;
+  border: 1px, solid, black;
 }
 .btn-draggable {
-  width: 160px;
+  width: 100%;
 }
 .emage {
+  width: 100%;
   height: 215px;
+}
+
+.emage img{
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -56,26 +76,12 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+.glyphicon-heart{
+  color: red;
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .container {
     max-width: 730px;
   }
@@ -90,9 +96,5 @@ body {
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
 }

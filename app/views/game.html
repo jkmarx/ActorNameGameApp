@@ -1,15 +1,14 @@
 <div class='row' ng-controller="GameCtrl as gameCtrl">
-  <div class='col-md-12 col-sm-12'>
+  <div class='col-md-11 col-md-offset-1 col-sm-12'>
     <movie-form></movie-form>
   </div>
-  <h2> {{gameCtrl.score}} </h2>
-  <h3> Chances Left {{gameCtrl.counter}}</h3>
+  <h2> Score: {{gameCtrl.score}},  <span class="glyphicon glyphicon-heart"></span> : {{gameCtrl.counter}}</h2>
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     <div class='contentWrapper ng-cloak'>
       <div class='content'>
         <div class="row-fluid">
-          <ul class="thumbnails">
-            <li class="col-md-2" ng-repeat="actor in gameCtrl.actors">
+          <ul class="col-md-12" >
+            <li ng-repeat="actor in gameCtrl.actors">
               <div class="thumbnail">
                 <div class="caption">
                   <div class='emage'><img src={{actor.image}}/></div>
@@ -23,11 +22,11 @@
         </div>
       </div>
     </div>
-     <div class="navbar-inner">
-      <div class="container form-inline" style="text-align: center;">
-        <div class="btn btn-droppable" ng-repeat="item in list2" data-drop="true" ng-model='list2'  jqyoui-droppable="{index: {{$index}}}">
-          <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},placeholder:false,animate:true, onStart:'startCallback(item, $index)'}" ng-hide="!item.name">{{item.name}}</div>
+     <!-- <div class="navbar-inner"> -->
+      <!-- <div class="container form-inline" style="text-align: center;"> -->
+        <div class="col-md-2" class="btn btn-droppable" ng-repeat="item in list2" data-drop="true" ng-model='list2'  jqyoui-droppable="{index: {{$index}}}">
+          <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},placeholder:false,animate:true, onStart:'startCallback(item, $index)'}" ng-hide="!item.name"><span class="glyphicon glyphicon-star">{{item.name}}</span></div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
