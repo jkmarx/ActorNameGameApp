@@ -40,7 +40,8 @@ function ModalInstanceCtrl($scope, $modalInstance, movies, ActorsFactory){
 
   $scope.ok = function () {
     $modalInstance.close($scope.selected.movie);
-    ActorsFactory.requestActors($scope.selected.movie).then(function(response){ console.log(response);
+    ActorsFactory.requestActors($scope.selected.movie).then(function(response){
+      console.log("in modal instance")
     });
   };
 

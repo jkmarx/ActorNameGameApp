@@ -1,55 +1,101 @@
 <div class='row' ng-controller="GameCtrl as gameCtrl">
   <div class='col-md-12 col-sm-12'>
     <movie-form></movie-form>
-<div class='row'>
-  <div class='col-md-2 col-sm-2' ng-repeat="actor in gameCtrl.actors">
-      <img src={{actor.image}}>
   </div>
-</div>
 
-<div class='row'>
+
+
+      <div class='contentWrapper ng-cloak'>
+        <div class='content'>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="col-md-2" ng-repeat="actor in gameCtrl.actors">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <div class='emage'><img src={{actor.image}}/></div>
+                    <p><div class="btn btn-droppable" data-drop="true" ng-model='list1' jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback',onOver: 'overCallback', onOut: 'outCallback'}">
+                      <div class="btn btn-info btn-draggable" ng-show="list1[$index].name" data-drag="{{list1[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">{{list1[$index].name}}</div>
+                    </div></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="navbar-inner">
+        <div class="container form-inline" style="text-align: center;">
+          <div class="btn btn-droppable" ng-repeat="item in list2" data-drop="true" ng-model='list2'  jqyoui-droppable="{index: {{$index}}}">
+            <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true, onStart:'startCallback(item, $index)', onStop: 'stopCallback', onDrag: 'dragCallback'}" ng-hide="!item.name">{{item.name}}</div>
+          </div>
+        </div>
+      </div> -->
+       <div class="navbar-inner">
+        <div class="container form-inline" style="text-align: center;">
+          <div class="btn btn-droppable" ng-repeat="item in list2" data-drop="true" ng-model='list2'  jqyoui-droppable="{index: {{$index}}}">
+            <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},placeholder:false,animate:true, onStart:'startCallback(item, $index)', onStop: 'stopCallback', onDrag: 'dragCallback'}" ng-hide="!item.name">{{item.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- <div class='row'>
   <div class='contentWrapper ng-cloak'>
     <div class='content'>
-      <div class="row-fluid">
-        <ul class="thumbnails">
-          <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail" data-drop="true" ng-model='list1' data-jqyoui-options="optionsList1" jqyoui-droppable="{multiple:true}">
-              <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="item in list1" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
-              </div>
+      <ul class="thumbnails">
+        <li class='col-md-2 col-sm-2'>
+        <img src={{gameCtrl.actors[0].image}}>
+          <div class="thumbnail" data-drop="true" ng-model='list1' data-jqyoui-options="optionsList1" jqyoui-droppable>
+            <div class="caption">
+              <div class="btn btn-info btn-draggable" ng-repeat="item in list1" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
             </div>
-          </li>
-          <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail" data-drop="true" ng-model='list2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list2])'}"  jqyoui-droppable="{multiple:true}">
-              <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
-              </div>
+          </div>
+        </li>
+        <li class='col-md-2 col-sm-2'>
+        <img src={{gameCtrl.actors[1].image}}>
+          <div class="thumbnail" data-drop="true" ng-model='list2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list2])'}"  jqyoui-droppable>
+            <div class="caption">
+              <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
             </div>
-          </li>
-          <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail" data-drop="true" ng-model='list3' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list3])'}"  jqyoui-droppable="{multiple:true}">
-              <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
-              </div>
+          </div>
+        </li>
+
+        <li class='col-md-2 col-sm-2'>
+        <img src={{gameCtrl.actors[2].image}}>
+          <div class="thumbnail" data-drop="true" ng-model='list3' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list3])'}"  jqyoui-droppable>
+            <div class="caption">
+              <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
             </div>
-          </li>
-          <li class="span3" style='margin-left:10px;'>
-            <div class="thumbnail" data-drop="true" ng-model='list4' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list4])'}"  jqyoui-droppable="{multiple:true}">
-              <div class="caption">
-                <div class="btn btn-info btn-draggable" ng-repeat="item in list4" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list4" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
-              </div>
+          </div>
+        </li>
+        <li class='col-md-2 col-sm-2'>
+        <img src={{gameCtrl.actors[3].image}}>
+          <div class="thumbnail" data-drop="true" ng-model='list4' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list4])'}"  jqyoui-droppable>
+            <div class="caption">
+              <div class="btn btn-info btn-draggable" ng-repeat="item in list4" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list4" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
             </div>
-          </li>
+          </div>
+        </li>
+        <li class='col-md-2 col-sm-2'>
+        <img src= {{gameCtrl.actors[4].image}}>
+          <div class="thumbnail" data-drop="true" ng-model='list5' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list5])'}"  jqyoui-droppable>
+            <div class="caption">
+              <div class="btn btn-info btn-draggable" ng-repeat="item in list5" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list5" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+            </div>
+          </div>
+        </li>
         </ul>
       </div>
     </div>
   </div>
   <div class="navbar-inner">
     <div class="container form-inline" style="text-align: center;">
-      <div class="btn btn-droppable" ng-repeat="item in list5" data-drop="true" ng-model='list5' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list5])'}"  jqyoui-droppable="{index: {{$index}}}">
-        <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list5" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-hide="!item.title">{{item.title}}</div>
+      <div class="btn btn-droppable" ng-repeat="item in list6" data-drop="true" ng-model='list6' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list6])'}"  jqyoui-droppable="{index: {{$index}}}">
+        <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list6" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-hide="!item.title">{{item.title}}</div>
       </div>
     </div>
   </div>
 </div>
 
+ -->

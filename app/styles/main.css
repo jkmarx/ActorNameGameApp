@@ -9,6 +9,21 @@ body {
   padding: 0;
 }
 
+
+.thumbnail {
+  height: 280px !important;
+   }
+.btn-droppable {
+  width: 180px; height: 30px; padding-left: 4px;
+  background-color: black;
+}
+.btn-draggable {
+  width: 160px;
+}
+.emage {
+  height: 215px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
