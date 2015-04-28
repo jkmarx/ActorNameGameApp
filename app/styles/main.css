@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-size: 16px;
-  background-image: url("https://raw.githubusercontent.com/jkmarx/ActorNameGameApp/gh-pages/images/lights.jpg");
+  /*background-image: url("https://raw.githubusercontent.com/jkmarx/ActorNameGameApp/gh-pages/images/lights.jpg");*/
   /*background-image: url("images/lights.jpg");*/
   background-attachment: fixed;
 }
