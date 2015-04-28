@@ -15,7 +15,6 @@ angular.module('NameGameApp').factory('ActorsFactory', ['$http', 'ServerUrl', fu
       angular.copy(response.data, actors);
       angular.copy(getCastNames(actors), actorsNames);
       angular.copy(getCastNamesRand(actorsNames.slice(0)), actorsNamesRand);
-      debugger;
     }, requestFailure);
   };
 
@@ -62,6 +61,7 @@ angular.module('NameGameApp').factory('ActorsFactory', ['$http', 'ServerUrl', fu
   return {
     actors: actors,
     requestActors: requestActors,
+    getCastNamesRand: getCastNamesRand,
     actorsNames: actorsNames,
     actorsNamesRand: actorsNamesRand
   };

@@ -7,13 +7,9 @@ GameCtrl.$inject = ['ActorsFactory', 'MoviesFactory', '$location', '$scope', '$t
 
 function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
   var vm = this;
-  var counter = 0;
-
-  // var movie = {};
-  // movie.id = '0110357';
-  // movie.title = 'The Lion King';
-  // vm.movies = MoviesFactory.movies;
-  // vm.actors = ActorsFactory.actors;
+  vm.counter = 3;
+  vm.score = 0;
+  vm.actorsNames = ActorsFactory.actorsNames;
 
   vm.searchMovie = function(movie){
     MoviesFactory.requestMovies(movie).then(function(response){
@@ -21,8 +17,26 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
     });
   };
 
+  vm.scoreTally = function(){
+    vm.score = vm.score + vm.counter * 10;
+  }
 
-  // $scope.images = [{'thumb': '1.png'},{'thumb': '2.png'},{'thumb': '3.png'},{'thumb': '4.png'}]
+  vm.checkWinner = function(){
+    if(vm.checkGuess()){
+      console.log("you win");
+      vm.scoreTally();
+      vm.counter = 3;
+      $scope.list1=[];
+    }else{
+      console.log("try again");
+      if(vm.counter > 0){
+        vm.counter = vm.counter - 1;
+      }
+      $scope.list1 =[];
+      angular.copy(ActorsFactory.getCastNamesRand(vm.actorsNames.slice(0)), $scope.list2);
+    }
+  }
+
   $scope.list1 = [];
   vm.actors = ActorsFactory.actors;
   angular.forEach(vm.actors, function(val, key) {
@@ -31,11 +45,7 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
 
 
   $scope.list2 = ActorsFactory.actorsNamesRand;
-  // vm.castnames = vm.getCastNames();
-  // vm.quiznames = vm.getCastNamesRand(vm.castnames);
-  // if($scope.list1.length === 5 && $scope.list2.length === 0){
-  //     console.log(here goes math logic);
-  //   }
+
   vm.checkGuess = function(){
     var flag = true;
     for(var i = 0; i<vm.actors.length; i++){
@@ -45,13 +55,6 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
     }
     return flag;
   }
-
-  // $scope.list2 = [
-  //   { 'title': 'KnockoutJS', 'drag': true },
-  //   { 'title': 'EmberJS', 'drag': true },
-  //   { 'title': 'BackboneJS', 'drag': true },
-  //   { 'title': 'AngularJS', 'drag': true }
-  // ];
 
   $scope.startCallback = function(event, ui, name) {
     console.log('You started draggin: ' + name);
@@ -69,11 +72,7 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
   $scope.dropCallback = function(event, ui) {
     console.log('hey, you dumped me :-(' , $scope.draggedName);
       if($scope.list2.length === 0){
-        if(vm.checkGuess()){
-          console.log("you win");
-        }else{
-          console.log("try again");
-        }
+        vm.checkWinner();
       }
   };
 
