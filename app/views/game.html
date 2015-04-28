@@ -2,12 +2,16 @@
   <div class='col-md-11 col-md-offset-1 col-sm-12'>
     <movie-form></movie-form>
   </div>
-  <h2> Score: {{gameCtrl.score}},  <span class="glyphicon glyphicon-heart"></span> : {{gameCtrl.counter}}</h2>
+  <div class="header-text">
+    <h2> Score: {{gameCtrl.score}}</h2>
+    <h3><span class="glyphicon glyphicon-heart"></span> : {{gameCtrl.counter}}</h3>
+  </div>
+
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     <div class='contentWrapper ng-cloak'>
       <div class='content'>
         <div class="row-fluid">
-          <ul class="col-md-12" >
+          <ul class="col-md-12" id="actors">
             <li ng-repeat="actor in gameCtrl.actors">
               <div class="thumbnail">
                 <div class="caption">

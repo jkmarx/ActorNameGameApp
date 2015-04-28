@@ -3,16 +3,20 @@ html, body {
   height: 100%;
   width: 100%;
   font-size: 16px;
-  /*background-image: url("https://raw.githubusercontent.com/jkmarx/ActorNameGameApp/gh-pages/images/lights.jpg");*/
-  /*background-image: url("images/lights.jpg");*/
+  background-image: url("https://raw.githubusercontent.com/jkmarx/ActorNameGameApp/gh-pages/images/Film.jpg");
+  /*background-image: url("/images/Film.jpg");*/
   background-attachment: fixed;
+  background-size: cover;
 }
 
-ul {
+.movie-form{
+}
+
+ul#actors{
   list-style-type: none;
 }
 
-li{
+ul#actors > li{
   display: inline;
   padding-right: 20px;
   float: left;
@@ -21,8 +25,13 @@ li{
 .thumbnail {
   height: 280px !important;
   width: 180px;
-   }
+  }
 
+.header-text{
+  background-color: white;
+  text-align: center;
+  width: 300px;
+}
 
 .btn-droppable {
   width: 100%;
