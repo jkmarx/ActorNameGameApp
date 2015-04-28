@@ -3,13 +3,55 @@ html, body {
   height: 100%;
   width: 100%;
   font-size: 16px;
-  background-image: url("https://raw.githubusercontent.com/jkmarx/ActorNameGameApp/gh-pages/images/Film.jpg");
+  background-image: url("https://raw.githubusercontent.com/jkmarx/ActorNameGameApp/master/app/images/Film.jpg");
   /*background-image: url("/images/Film.jpg");*/
   background-attachment: fixed;
   background-size: cover;
 }
 
+#info-text{
+  background-color: rgba(255,255,255,0.8);
+  width: 90%;
+  height: auto;
+  text-align:center;
+  border:2px solid;
+  border-radius: 5px;
+  margin-left:5%;
+}
+
 .movie-form{
+  display: inline;
+  float: left;
+  width: 400px;
+  height: auto;
+  /*text-align:center;*/
+  margin-left: 15px;
+}
+
+.movie-form .form-group{
+  padding: 10px;
+}
+
+.header-text{
+  display: inline;
+  float: left;
+  width: 250px;
+  height: auto;
+}
+
+.header-text>h2{
+  padding: 10px;
+  margin: 0;
+}
+
+#title{
+  display: inline;
+  float:left;
+  margin-left: 15px;
+}
+
+#title > h2{
+  margin: 10px;
 }
 
 ul#actors{
@@ -26,12 +68,6 @@ ul#actors > li{
   height: 280px !important;
   width: 180px;
   }
-
-.header-text{
-  background-color: white;
-  text-align: center;
-  width: 300px;
-}
 
 .btn-droppable {
   width: 100%;
@@ -51,14 +87,6 @@ ul#actors > li{
   width: 100%;
   height: auto;
   padding-bottom: 50px;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 /* Custom page header */

@@ -1,13 +1,10 @@
 <div class='row' ng-controller="GameCtrl as gameCtrl">
-  <div class='col-md-11 col-md-offset-1 col-sm-12'>
+  <div class='col-md-12 col-sm-12' id="info-text">
+    <div class="header-text">
+      <h2> Score: {{gameCtrl.score}}, <span class="glyphicon glyphicon-heart"></span> : {{gameCtrl.counter}}</h2>
+    </div>
     <movie-form></movie-form>
   </div>
-  <div class="header-text">
-    <h2> Score: {{gameCtrl.score}}</h2>
-    <h3><span class="glyphicon glyphicon-heart"></span> : {{gameCtrl.counter}}</h3>
-  </div>
-
-  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     <div class='contentWrapper ng-cloak'>
       <div class='content'>
         <div class="row-fluid">
@@ -32,6 +29,8 @@
           <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},placeholder:false,animate:true, onStart:'startCallback(item, $index)'}" ng-hide="!item.name"><span class="glyphicon glyphicon-star">{{item.name}}</span></div>
         </div>
       </div>
+
+      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     <!-- </div> -->
 
 
