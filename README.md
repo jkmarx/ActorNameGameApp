@@ -10,9 +10,8 @@ A user would come to your website and be able to enter a movie title of his/her 
 has submitted a movie title, five different pictures of actors from that movie should appear on the page.
 Underneath those pictures, should be a shuffled list of names, each of which should correspond to one of
 the pictures above. Next, a user should be able to match up each of the actors' names with one of the
-pictures. After they've matched all of them, there should be some sort of scoring mechanism so they can
-see how they did!
---
+pictures. After they've matched all of them, there should be some sort of scoring mechanism so they can see how they did!
+
 ## Technical Requirements:
 1. One or more API integrations should be used to complete this project, we leave which API(s) up to you!
 2. When a user submits a movie title, the actor name and picture data should be retrieved via AJAX request.
