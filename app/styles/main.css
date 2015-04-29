@@ -81,32 +81,16 @@ ul#actors > li{
   float: left;
 }
 
-
-/*.btn-droppable {
-  width: 180px;
-  height: auto;
-  background-color: rgba(0,0,0,0.5);
-  border: 1px, solid, black;
-  display: inline;
-  padding-right: 20px;
-  float: left;
-}*/
-
 .btn-droppable#nameCont{
   position:absolute;
   bottom:0;
-  left: 0;
+  left: 1px;
   background-color: rgba(0,0,0,0.5);
   border: 1px, dashed, black;
-  width: 180px;
+  width: 177px;
   height: 40px;
   padding: 2px;
 }
-
-/*.btn-draggable {
-  width: 180px;
-  margin-right: 100px;
-}*/
 
 ul#names{
   list-style-type: none;
@@ -125,11 +109,10 @@ ul#names > li{
 }
 
 .emage img{
-  width: 100%;
+  max-width: 178px;
   max-height: 220px;
   overflow: hidden;
 }
-
 
 /* Custom page header */
 .header {

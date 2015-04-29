@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('NameGameApp')
-  .controller('GameCtrl', GameCtrl)
+  .controller('GameCtrl', GameCtrl);
 
 GameCtrl.$inject = ['ActorsFactory', 'MoviesFactory', '$location', '$scope', '$timeout'];
 
@@ -13,9 +13,6 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
   vm.actorsNames = ActorsFactory.actorsNames;
 
   $scope.list1 = [];
-  angular.forEach(vm.actors, function(val, key) {
-    $scope.list1.push({});
-  });
   $scope.list2 = ActorsFactory.actorsNamesRand;
   $scope.alerts = [];
 
@@ -27,29 +24,29 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
 
   vm.scoreTally = function(){
     vm.score = vm.score + vm.counter * 10;
-  }
+  };
 
   vm.counterTally = function(){
     if(vm.counter > 0){
       vm.counter = vm.counter - 1;
     }
-  }
+  };
 
   vm.checkWinner = function(){
     if(vm.checkGuess()){
-      console.log("you win");
+      console.log('you win');
       vm.scoreTally();
       vm.counter = 3;
       vm.addAlertWin();
       vm.resetLists();
     }else{
-      console.log("try again");
+      console.log('try again');
       vm.counterTally();
       vm.addAlertFail();
       vm.resetLists();
       vm.resetRandList();
     }
-  }
+  };
 
   vm.resetLists = function(){
     $scope.list1 =[];
@@ -67,14 +64,14 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
       }
     }
     return flag;
-  }
+  };
 
   vm.listNames = function(arrCast){
     var names = arrCast.map(function(actor){
       return actor.name;
-    })
+    });
     return names.join(', ');
-  }
+  };
 
   vm.addAlertWin = function() {
     $scope.alerts.push({type: 'success', msg: 'Well Done Mate! ' + vm.listNames($scope.list1) + ' was correct.'});
@@ -82,7 +79,7 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
 
   vm.addAlertFail = function() {
     $scope.alerts.push({type: 'warning', msg: 'Try Again. ' + vm.listNames($scope.list1) + ' was incorrect.' });
-  }
+  };
 
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
@@ -100,4 +97,4 @@ function GameCtrl(ActorsFactory, MoviesFactory, $location, $scope, $timeout){
       }
   };
 
-};
+}

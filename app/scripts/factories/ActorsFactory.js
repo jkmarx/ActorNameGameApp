@@ -23,17 +23,17 @@ angular.module('NameGameApp').factory('ActorsFactory', ['$http', 'ServerUrl', fu
       return actor.name;
     });
 
-    return(correctNames)
-  }
+    return(correctNames);
+  };
 
   var getCastNamesRand = function(orderedNames){
     var randNames = shuffleArray(orderedNames);
 
     var domRandNames = randNames.map(function(name){
-      return { 'name': name, 'drag': true}
-    })
-    return(domRandNames)
-  }
+      return { 'name': name, 'drag': true};
+    });
+    return(domRandNames);
+  };
 
   var shuffleArray = function(arr){
     var shuffledArr = [];
@@ -44,7 +44,7 @@ angular.module('NameGameApp').factory('ActorsFactory', ['$http', 'ServerUrl', fu
       arr.splice(ind, 1);
     }else{
       shuffledArr.push(arr[0]);
-      };
+      }
     }
     return shuffledArr;
   };

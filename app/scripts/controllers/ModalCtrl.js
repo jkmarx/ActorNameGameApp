@@ -25,7 +25,7 @@ function ModalCtrl($scope, $modal, $log, MoviesFactory){
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-};
+}
 
 angular.module('NameGameApp')
   .controller('ModalInstanceCtrl', ModalInstanceCtrl);
@@ -41,11 +41,11 @@ function ModalInstanceCtrl($scope, $modalInstance, movies, ActorsFactory){
   $scope.ok = function () {
     $modalInstance.close($scope.selected.movie);
     ActorsFactory.requestActors($scope.selected.movie).then(function(response){
-      console.log("in modal instance")
+      console.log('in modal instance');
     });
   };
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-};
+}

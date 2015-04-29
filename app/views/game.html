@@ -17,11 +17,9 @@
         <ul id="actors">
           <li ng-repeat="actor in gameCtrl.actors">
             <div class="thumbnail">
-              <div class="caption">
-                <div class='emage'><img src={{actor.image}}/></div>
-                <div class="btn btn-droppable" id="nameCont" data-drop="true" ng-model='list1' jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback'}">
-                  <div class="btn btn-default btn-draggable" ng-show="list1[$index].name" data-drag="{{list1[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">{{list1[$index].name}}</div>
-                </div>
+              <div class='emage'><img src={{actor.image}}/></div>
+              <div class="btn btn-droppable" id="nameCont" data-drop="true" ng-model='list1' jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback'}">
+                <div class="btn btn-default btn-draggable" ng-show="list1[$index].name" data-drag="{{list1[$index].drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">{{list1[$index].name}}</div>
               </div>
             </div>
           </li>
@@ -38,12 +36,6 @@
         </div>
       </div>
     </li>
-  <!-- <div class='row-fluid' id='names'>
-    <div class="col-md-2 col-sm-1" class="btn btn-droppable" ng-repeat="item in list2" data-drop="true" ng-model='list2'  jqyoui-droppable="{index: {{$index}}}">
-      <div class="btn btn-default btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},placeholder:false,animate:true, onStart:'startCallback(item, $index)'}" ng-hide="!item.name">
-        {{item.name}}
-      </div>
-    </div> -->
   </div>
 </div>
 
